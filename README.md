@@ -1,2 +1,0 @@
-# PieChart
-Created with CodeSandbox
