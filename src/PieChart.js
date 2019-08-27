@@ -17,6 +17,7 @@ class PieChart extends React.Component {
       //creates legend based on data prop
       return (
         <LegendItem
+          key={legendItem.id}
           legendClick={() =>
             this.setState({ centerValue: `${legendItem.value}%` })
           }
@@ -47,7 +48,7 @@ class PieChart extends React.Component {
         height: "100%",
         width: "100%"
       },
-      centerValue: {
+      centerValueTwoDigits: {
         position: "absolute",
         left: "39%",
         top: "45.3%",
@@ -58,6 +59,14 @@ class PieChart extends React.Component {
       centerValueSingleDigit: {
         position: "absolute",
         left: "42.5%",
+        top: "45.3%",
+        fontFamily: "helvetica",
+        fontWeight: "bold",
+        fontSize
+      },
+      centerValueThreeDigits: {
+        position: "absolute",
+        left: "36%",
         top: "45.3%",
         fontFamily: "helvetica",
         fontWeight: "bold",
@@ -86,8 +95,9 @@ class PieChart extends React.Component {
       container,
       root,
       chart,
-      centerValue,
       centerValueSingleDigit,
+      centerValueTwoDigits,
+      centerValueThreeDigits,
       legend
     } = style;
 
@@ -111,9 +121,11 @@ class PieChart extends React.Component {
 
           <div //adjusts the position of the chart value to make sure its centered regardless of # of digits
             style={
-              this.state.centerValue.length > 2
-                ? centerValue
-                : centerValueSingleDigit
+              this.state.centerValue.length === 2
+                ? centerValueSingleDigit
+                : this.state.centerValue.length === 3
+                ? centerValueTwoDigits
+                : centerValueThreeDigits
             }
           >
             {renderCenter ? this.state.centerValue : ""}

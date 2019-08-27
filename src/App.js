@@ -6,26 +6,22 @@ const App = () => {
     //Adjust below data to render specific chart info
     {
       id: "Key 1",
-      label: "key 1",
       value: 5,
       color: "#b15559"
     },
     {
       id: "Key 2",
-      label: "key 2",
       value: 70,
       color: "#d99933"
     },
     {
       id: "Key 3",
-      label: "key 3",
       value: 12,
       color: "#83a449"
     },
     {
       id: "Key 4",
-      label: "key 4",
-      value: 13,
+      value: 18,
       color: "#337e9e"
     }
   ];
