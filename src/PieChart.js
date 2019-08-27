@@ -1,5 +1,6 @@
 import { ResponsivePie } from "@nivo/pie";
 import React from "react";
+import LegendItem from "./LegendItem";
 import PropTypes from "prop-types";
 import "./styles.css";
 
@@ -11,21 +12,19 @@ class PieChart extends React.Component {
 
   render() {
     const { data, size, renderCenter } = this.props;
+
     //creates legend based on data prop
-    const keyItems = data.map(key => {
+    const legendItems = data.map(legendItem => {
       return (
-        <div
-          onClick={() => this.setState({ centerValue: `${key.value}%` })}
-          className="key-item"
-        >
-          <div
-            style={{ backgroundColor: `${key.color}` }}
-            className="key-marker"
-          />
-          <div className="key-value">{key.id}</div>
-        </div>
+        <LegendItem
+          legendClick={() =>
+            this.setState({ centerValue: `${legendItem.value}%` })
+          }
+          legendItem={legendItem}
+        />
       );
     });
+
     //creates color array from data prop
     const sliceColors = data.map(color => {
       return color.color;
@@ -37,8 +36,7 @@ class PieChart extends React.Component {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        flexDirection: "column"
-        //height: "100vh"  to make items change size
+        flexDirection: "column" //height: "100vh"  to make items change size
       },
       root: {
         position: "relative",
@@ -65,6 +63,23 @@ class PieChart extends React.Component {
         fontFamily: "helvetica",
         fontWeight: "bold",
         fontSize
+      },
+      legend: {
+        fontFamily: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol"
+        ],
+        display: "flex",
+        justifyContent: "space-around",
+        marginTop: "2.7%",
+        marginLeft: "2%"
       }
     };
 
@@ -96,7 +111,7 @@ class PieChart extends React.Component {
             {renderCenter ? this.state.centerValue : ""}
           </div>
         </div>
-        <div className="container">{keyItems}</div>
+        <div style={style.legend}>{legendItems}</div>
         <div />
       </div>
     );
@@ -105,7 +120,23 @@ class PieChart extends React.Component {
 
 PieChart.defautProps = {
   data: PropTypes.arrayOf(Object).isRequired,
-  size: PropTypes.string.isRequired
+  size: PropTypes.string.isRequired,
+  renderCenter: PropTypes.bool.isRequired
 };
 
 export default PieChart;
+
+// const legendItems = data.map(legendItem => {
+//   return (
+//     <div
+//       onClick={() => this.setState({ centerValue: `${legendItem.value}%` })}
+//       className="legend-item"
+//     >
+//       <div
+//         style={{ backgroundColor: `${legendItem.color}` }}
+//         className="legend-marker"
+//       />
+//       <div className="legend-value">{legendItem.id}</div>
+//     </div>
+//   );
+// });

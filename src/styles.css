@@ -3,19 +3,19 @@ body {
   height: 100%;
   width: 100%;
 }
-.key-item {
+.legend-item {
   display: flex;
   cursor: pointer;
   margin-right: 19px;
 }
-.key-value {
+.legend-value {
   opacity: 0.7;
   padding-left: 2px;
   margin-bottom: 3px;
   font-size: 0.8em;
   margin-right: 10px;
 }
-.key-value:hover {
+.legend-value:hover {
   opacity: 1;
 }
 .container {
@@ -27,7 +27,7 @@ body {
   margin-left: 2%;
 }
 
-.key-marker {
+.legend-marker {
   height: 18px;
   width: 18px;
   background-color: blue;
