@@ -28,10 +28,10 @@ class LegendItem extends React.Component {
         marginRight: "10px"
       },
       legendMarker: {
-        backgroundColor: `${legendItem.color}`,
+        backgroundColor: legendItem.color,
         height: "18px",
         width: "18px",
-        borderRadius: "55%",
+        borderRadius: "50%",
         marginRight: "4px"
       }
     };

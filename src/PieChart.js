@@ -11,10 +11,10 @@ class PieChart extends React.Component {
   };
 
   render() {
-    const { data, size, renderCenter } = this.props;
+    const { data, chartSize, renderCenter } = this.props;
 
     const legendItems = data.map(legendItem => {
-      //creates legend based on data prop
+      //creates legend using data prop
       return (
         <LegendItem
           key={legendItem.id}
@@ -31,7 +31,7 @@ class PieChart extends React.Component {
       return color.color;
     });
 
-    const fontSize = parseInt(size, 10) / 8;
+    const fontSize = parseInt(chartSize, 10) / 8;
     const style = {
       container: {
         display: "flex",
@@ -41,8 +41,8 @@ class PieChart extends React.Component {
       },
       root: {
         position: "relative",
-        height: size,
-        width: size
+        height: chartSize,
+        width: chartSize
       },
       chart: {
         height: "100%",
