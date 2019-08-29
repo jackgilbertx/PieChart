@@ -25,8 +25,8 @@ class PieChart extends React.Component {
       );
     });
 
-    const sliceColors = data.map(color => {
-      return color.color;
+    const sliceColors = data.map(sliceColor => {
+      return sliceColor.color;
     });
 
     const fontSize = parseInt(chartSize, 10) / 8;
@@ -89,7 +89,6 @@ class PieChart extends React.Component {
           />
           <div style={centerValue}>{this.state.centerValue}</div>
         </div>
-
         <div style={legend}>{legendItems}</div>
         <div />
       </div>
