@@ -7,11 +7,11 @@ import "./styles.css";
 class PieChart extends React.Component {
   state = {
     data: this.props.data,
-    centerValue: "50%"
+    centerValue: ""
   };
 
   render() {
-    const { data, chartSize, renderCenter } = this.props;
+    const { data, chartSize } = this.props;
 
     const legendItems = data.map(legendItem => {
       return (
@@ -87,9 +87,7 @@ class PieChart extends React.Component {
             isInteractive={true}
             onClick={e => this.setState({ centerValue: `${e.value}%` })}
           />
-          <div style={centerValue}>
-            {renderCenter ? this.state.centerValue : ""}
-          </div>
+          <div style={centerValue}>{this.state.centerValue}</div>
         </div>
 
         <div style={legend}>{legendItems}</div>
