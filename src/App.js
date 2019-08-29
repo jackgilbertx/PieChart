@@ -27,7 +27,7 @@ const App = () => {
   ];
   const props = {
     data,
-    chartSize: "260px",
+    chartSize: "300px",
     renderCenter: true // set to true to render center value in chart
   };
 
