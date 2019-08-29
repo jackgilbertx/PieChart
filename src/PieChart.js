@@ -52,7 +52,7 @@ class PieChart extends React.Component {
         position: "absolute",
         top: "50%",
         left: "50%",
-        transform: "translate(-41%,-35%)",
+        transform: "translate(-43%,-35%)",
         fontFamily: "helvetica",
         fontWeight: "bold",
         fontSize
