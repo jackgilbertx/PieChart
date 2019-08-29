@@ -2,7 +2,7 @@ import { ResponsivePie } from "@nivo/pie";
 import React from "react";
 import LegendItem from "./LegendItem";
 import PropTypes from "prop-types";
-// import "./styles.css";
+import "./styles.css";
 
 class PieChart extends React.Component {
   state = {
@@ -14,7 +14,6 @@ class PieChart extends React.Component {
     const { data, chartSize, renderCenter } = this.props;
 
     const legendItems = data.map(legendItem => {
-      //creates legend using data prop
       return (
         <LegendItem
           key={legendItem.id}
@@ -26,7 +25,6 @@ class PieChart extends React.Component {
       );
     });
 
-    //creates color array from data prop
     const sliceColors = data.map(color => {
       return color.color;
     });
@@ -34,25 +32,22 @@ class PieChart extends React.Component {
     const fontSize = parseInt(chartSize, 10) / 8;
     const style = {
       container: {
+        // position: "relative",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        flexDirection: "column" //height: "100vh"  to make items change size
-      },
-      root: {
-        position: "relative",
-        height: chartSize,
-        width: chartSize
+        flexDirection: "column"
       },
       chart: {
-        height: "100%",
-        width: "100%"
+        height: chartSize,
+        width: chartSize,
+        position: "relative"
       },
       centerValue: {
         position: "absolute",
         top: "50%",
         left: "50%",
-        transform: "translate(-43%,-35%)",
+        transform: "translate(-44%,-35%)",
         fontFamily: "helvetica",
         fontWeight: "bold",
         fontSize
@@ -71,49 +66,72 @@ class PieChart extends React.Component {
         ],
         display: "flex",
         justifyContent: "space-around",
-        marginTop: "2.7%",
-        marginLeft: "2%"
+        marginLeft: "2%",
+        marginTop: "3%"
       }
     };
 
-    const { container, root, chart, centerValue, legend } = style;
+    const { container, chart, centerValue, legend } = style;
 
     return (
       <div style={container}>
-        <div style={root}>
-          <div style={chart}>
-            <ResponsivePie
-              data={this.state.data}
-              startAngle={-180}
-              innerRadius={0.87}
-              padAngle={1.5}
-              colors={sliceColors}
-              borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
-              enableRadialLabels={false}
-              enableSlicesLabels={false}
-              isInteractive={true} // pass down prop
-              onClick={e => this.setState({ centerValue: `${e.value}%` })}
-            />
-          </div>
-
+        <div style={chart}>
+          <ResponsivePie
+            data={this.state.data}
+            startAngle={-180}
+            innerRadius={0.87}
+            padAngle={1.5}
+            colors={sliceColors}
+            enableRadialLabels={false}
+            enableSlicesLabels={false}
+            isInteractive={true}
+            onClick={e => this.setState({ centerValue: `${e.value}%` })}
+          />
           <div style={centerValue}>
             {renderCenter ? this.state.centerValue : ""}
           </div>
         </div>
+
         <div style={legend}>{legendItems}</div>
         <div />
       </div>
     );
   }
 }
+export default PieChart;
 
-PieChart.defautProps = {
+PieChart.propTypes = {
   data: PropTypes.arrayOf(Object).isRequired,
   size: PropTypes.string.isRequired,
   renderCenter: PropTypes.bool.isRequired
 };
 
-export default PieChart;
+PieChart.defaultProps = {
+  renderCenter: true,
+  chartSize: "300px",
+  data: [
+    {
+      id: "Key 1",
+      value: 25,
+      color: "#b15559"
+    },
+    {
+      id: "Key 2",
+      value: 25,
+      color: "#d99933"
+    },
+    {
+      id: "Key 3",
+      value: 25,
+      color: "#83a449"
+    },
+    {
+      id: "Key 4",
+      value: 25,
+      color: "#337e9e"
+    }
+  ]
+};
 
 // import { ResponsivePie } from "@nivo/pie";
 // import React from "react";

@@ -1,5 +1,5 @@
 import React from "react";
-//import "./styles.css";
+import PropTypes from "prop-types";
 
 class LegendItem extends React.Component {
   state = { hover: false };
@@ -12,6 +12,13 @@ class LegendItem extends React.Component {
         display: "flex",
         cursor: "pointer",
         marginRight: "19px"
+      },
+      legendMarker: {
+        backgroundColor: legendItem.color,
+        height: "18px",
+        width: "18px",
+        borderRadius: "50%",
+        marginRight: "4px"
       },
       legendValue: {
         opacity: 0.7,
@@ -26,13 +33,6 @@ class LegendItem extends React.Component {
         marginBottom: "3px",
         fontSize: "0.8em",
         marginRight: "10px"
-      },
-      legendMarker: {
-        backgroundColor: legendItem.color,
-        height: "18px",
-        width: "18px",
-        borderRadius: "50%",
-        marginRight: "4px"
       }
     };
 
@@ -56,10 +56,7 @@ class LegendItem extends React.Component {
 
 export default LegendItem;
 
-// {/* <div onClick={legendClick} className="legend-item">
-//       <div
-//         style={{ backgroundColor: `${legendItem.color}` }}
-//         className="legend-marker"
-//       />
-//       <div className="legend-value">{legendItem.id}</div>
-//     </div> */}
+LegendItem.propTypes = {
+  lengendClick: PropTypes.func.isRequired,
+  legendItem: PropTypes.object.isRequired
+};

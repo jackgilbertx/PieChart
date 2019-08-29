@@ -3,7 +3,7 @@ body {
   height: 100%;
   width: 100%;
 }
-.legend-item {
+/* .legend-item {
   display: flex;
   cursor: pointer;
   margin-right: 19px;
@@ -33,4 +33,4 @@ body {
   background-color: blue;
   border-radius: 55%;
   margin-right: 4px;
-}
+} */

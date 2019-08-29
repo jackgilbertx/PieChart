@@ -21,7 +21,7 @@ const App = () => {
     },
     {
       id: "Key 4",
-      value: 18,
+      value: 13,
       color: "#337e9e"
     }
   ];
