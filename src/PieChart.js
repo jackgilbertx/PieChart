@@ -98,7 +98,14 @@ class PieChart extends React.Component {
 export default PieChart;
 
 PieChart.propTypes = {
-  data: PropTypes.arrayOf(Object).isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired,
+      color: PropTypes.string.isRequired
+    })
+  ).isRequired,
   size: PropTypes.string.isRequired,
   renderCenter: PropTypes.bool.isRequired
 };
@@ -109,22 +116,26 @@ PieChart.defaultProps = {
   data: [
     {
       id: "Key 1",
-      value: 25,
+      label: "Key 1",
+      value: 5,
       color: "#b15559"
     },
     {
       id: "Key 2",
-      value: 25,
+      label: "Key 1",
+      value: 70,
       color: "#d99933"
     },
     {
       id: "Key 3",
-      value: 25,
+      label: "Key 1",
+      value: 12,
       color: "#83a449"
     },
     {
       id: "Key 4",
-      value: 25,
+      label: "Key 4",
+      value: 13,
       color: "#337e9e"
     }
   ]
