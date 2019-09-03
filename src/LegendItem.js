@@ -56,7 +56,7 @@ class LegendItem extends React.Component {
 
 export default LegendItem;
 
-LegendItem.propTypes = {
-  lengendClick: PropTypes.func.isRequired,
-  legendItem: PropTypes.object.isRequired
-};
+// LegendItem.propTypes = {
+//   lengendClick: PropTypes.func.isRequired,
+//   legendItem: PropTypes.object.isRequired
+// };
