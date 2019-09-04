@@ -10,7 +10,7 @@ class PieChart extends React.Component {
   };
 
   render() {
-    const { data, chartSize } = this.props;
+    const { data, chartSize, renderLegend } = this.props;
 
     const legendItems = data.map(legendItem => {
       return (
@@ -88,7 +88,7 @@ class PieChart extends React.Component {
           />
           <div style={centerValue}>{this.state.centerValue}</div>
         </div>
-        <div style={legend}>{legendItems}</div>
+        <div style={legend}>{renderLegend ? legendItems : ""}</div>
         <div />
       </div>
     );
