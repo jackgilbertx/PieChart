@@ -10,7 +10,13 @@ class PieChart extends React.Component {
   };
 
   render() {
-    const { data, chartSize, renderLegend } = this.props;
+    const { data, chartSize, renderLegend, colors } = this.props;
+
+    for (let i = 0; i < colors.length; i++) {
+      for (let j = 0; j < data.length; j++) {
+        data[i].color = colors[i];
+      }
+    }
 
     const legendItems = data.map(legendItem => {
       return (
@@ -24,9 +30,9 @@ class PieChart extends React.Component {
       );
     });
 
-    const sliceColors = data.map(sliceColor => {
-      return sliceColor.color;
-    });
+    // const sliceColors = data.map(sliceColor => {
+    //   return sliceColor.color;
+    // });
 
     const fontSize = parseInt(chartSize, 10) / 8;
     const style = {
@@ -80,7 +86,7 @@ class PieChart extends React.Component {
             startAngle={-180}
             innerRadius={0.87}
             padAngle={1.5}
-            colors={sliceColors}
+            colors={colors}
             enableRadialLabels={false}
             enableSlicesLabels={false}
             isInteractive={true}

@@ -8,33 +8,33 @@ const App = () => {
     {
       id: "Key 1",
       label: "Key 1",
-      value: 5,
-      color: "#b15559"
+      value: 5
+      //color: "#b15559"
     },
     {
       id: "Key 2",
       label: "Key 1",
-      value: 70,
-      color: "#d99933"
+      value: 70
+      //color: "#d99933"
     },
     {
       id: "Key 3",
       label: "Key 1",
-      value: 12,
-      color: "#83a449"
+      value: 12
+      //color: "#83a449"
     },
     {
       id: "Key 4",
       label: "Key 4",
-      value: 13,
-      color: "#337e9e"
+      value: 13
+      //color: "#337e9e"
     }
   ];
   const props = {
     data,
     chartSize: "300px",
-    renderLegend: true
-    //renderCenter: false // set to true to render center value in chart
+    renderLegend: true,
+    colors: ["#b15559", "#d99933", "#83a449", "#337e9e"]
   };
 
   return <PieChart {...props} />;
