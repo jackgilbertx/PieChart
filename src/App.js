@@ -13,13 +13,13 @@ const App = () => {
     },
     {
       id: "Key 2",
-      label: "Key 1",
+      label: "Key 2",
       value: 70
       //color: "#d99933"
     },
     {
       id: "Key 3",
-      label: "Key 1",
+      label: "Key 3",
       value: 12
       //color: "#83a449"
     },
@@ -34,7 +34,7 @@ const App = () => {
     data,
     chartSize: "300px",
     renderLegend: true,
-    colors: ["#b15559", "#d99933", "#83a449", "#337e9e"]
+    colors: ["#b15559", "#d99933", "#83a449", "#337e9e"] //
   };
 
   return <PieChart {...props} />;

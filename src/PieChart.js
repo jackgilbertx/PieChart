@@ -12,11 +12,15 @@ class PieChart extends React.Component {
   render() {
     const { data, chartSize, renderLegend, colors } = this.props;
 
-    for (let i = 0; i < colors.length; i++) {
-      for (let j = 0; j < data.length; j++) {
-        data[i].color = colors[i];
-      }
-    }
+    colors.forEach((color, index) => {
+      data[index].color = colors[index];
+    });
+
+    // for (let i = 0; i < colors.length; i++) {
+    //   for (let j = 0; j < data.length; j++) {
+    //     data[i].color = colors[i];
+    //   }
+    // }
 
     const legendItems = data.map(legendItem => {
       return (
@@ -70,7 +74,7 @@ class PieChart extends React.Component {
           "Segoe UI Symbol"
         ],
         display: "flex",
-        justifyContent: "space-around",
+        justifyContent: "center",
         marginLeft: "2%",
         marginTop: "3%"
       }
