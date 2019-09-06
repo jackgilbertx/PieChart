@@ -34,7 +34,7 @@ const App = () => {
     data,
     chartSize: "300px",
     renderLegend: true,
-    colors: ["#b15559", "#d99933", "#83a449", "#337e9e"] //
+    colors: ["#b15559", "#d99933", "#83a449", "#337e9e", "blue"] //
   };
 
   return <PieChart {...props} />;

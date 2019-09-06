@@ -1,7 +1,7 @@
 import { ResponsivePie } from "@nivo/pie";
 import React from "react";
 import LegendItem from "./LegendItem";
-import PropTypes from "prop-types";
+import PropTypes, { array } from "prop-types";
 import "./styles.css";
 
 class PieChart extends React.Component {
@@ -12,15 +12,25 @@ class PieChart extends React.Component {
   render() {
     const { data, chartSize, renderLegend, colors } = this.props;
 
+    const dataLen = data.length;
+    const colorLen = colors.length;
+    let difference = Math.abs(dataLen - colorLen);
+
+    // if (colorLen > dataLen) {
+    //   for (let i = 0; i < difference; i++) {
+    //     colors.pop();
+    //   }
+    // }
+    if (colorLen > dataLen) {
+      while (difference > 0) {
+        colors.pop();
+        difference -= 1;
+      }
+    }
+
     colors.forEach((color, index) => {
       data[index].color = colors[index];
     });
-
-    // for (let i = 0; i < colors.length; i++) {
-    //   for (let j = 0; j < data.length; j++) {
-    //     data[i].color = colors[i];
-    //   }
-    // }
 
     const legendItems = data.map(legendItem => {
       return (
